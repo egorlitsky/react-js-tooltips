@@ -1,0 +1,21 @@
+.tooltipContainer {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  will-change: opacity, transform;
+  transition: opacity 500ms ease-in-out;
+}
+
+.tooltipVisible {
+  /* Controlled by inline style now, but keep class if needed */
+}
+
+.shake {
+  animation: shake 300ms ease-in-out;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}

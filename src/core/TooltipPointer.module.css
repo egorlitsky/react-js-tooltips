@@ -1,0 +1,3 @@
+.tooltipPointer {
+    will-change: opacity, transform;
+}

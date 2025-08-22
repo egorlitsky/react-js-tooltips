@@ -141,16 +141,6 @@ export class TooltipManager {
     );
     return tooltip !== undefined;
   }
-
-  public repairAwaitingTooltip(uniqueId: string): void {
-    if (this.isAwaitingTooltipActive(uniqueId)) {
-      setTimeout(() => {
-        this.activateAwaitingTooltip(uniqueId);
-      }, TUTORIAL_TOOLTIP_REPAIR_TIMEOUT);
-    }
-  }
 }
-
-export const TUTORIAL_TOOLTIP_REPAIR_TIMEOUT = 1000 as const;
 
 export const tooltipManager = TooltipManager.getInstance();

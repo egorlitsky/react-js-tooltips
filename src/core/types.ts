@@ -84,7 +84,7 @@ export enum TooltipPlacement {
   NONE = "none",
 }
 
-export enum AnchorPlacement {
+export enum PointerPlacement {
   TOP = "top",
   LEFT = "left",
   BOTTOM = "bottom",

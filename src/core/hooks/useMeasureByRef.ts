@@ -1,4 +1,5 @@
-import { RefObject, useCallback, useEffect, useMemo, useState } from "react";
+import { RefObject, useCallback, useEffect, useState } from "react";
+
 import { IPosition, ISize } from "../types";
 import useWindowDimensions from "./useWindowDimensions";
 

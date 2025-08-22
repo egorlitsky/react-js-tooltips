@@ -8,12 +8,14 @@ const Demo: React.FC = () => {
   return (
     <TooltipWrapper
       renderOverlay={(tooltipProps) => {
-        return <Tooltip {...tooltipProps} width={240}>
-          <div>
-            <h3>Tooltip Title</h3>
-            <p>This is a tooltip with some content.</p>
-          </div>
-        </Tooltip>;
+        return (
+          <Tooltip {...tooltipProps} width={240}>
+            <div>
+              <h3>Tooltip Title</h3>
+              <p>This is a tooltip with some content.</p>
+            </div>
+          </Tooltip>
+        );
       }}
     >
       <div
@@ -30,10 +32,23 @@ const Demo: React.FC = () => {
 const App: React.FC = () => {
   return (
     <div className="App">
-
       <h1>Some heading text</h1>
       <p>Click element below to see tooltip in action!</p>
-      <Demo />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
+        <div>
+          <Demo />
+        </div>
+        <div
+          style={{
+            flex: 1,
+          }}
+        />
+      </div>
 
       <TooltipContainer />
     </div>

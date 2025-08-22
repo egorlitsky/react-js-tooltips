@@ -2,9 +2,9 @@ import React from "react";
 
 import { ITooltipInner } from "./types";
 import styles from "./TooltipContainer.module.css";
+import { TooltipAbstraction } from "./TooltipAbstraction";
 import { useTooltipStore } from "./stores/useTooltipStore";
 import { tooltipManager } from "./managers/TooltipManager";
-import { TooltipAbstraction } from "./TooltipAbstraction";
 
 interface ITooltipContainer {
   disableAnimation?: boolean;
@@ -40,7 +40,11 @@ export const TooltipContainer: React.FC<ITooltipContainer> = (props) => {
         target={target}
         disableAnimation={disableAnimation}
         onOpen={onOpen}
-        onClose={() => {
+        onClose={(removeDone?: () => void) => {
+          // removeDone is called after fade-out animation
+          if (typeof removeDone === 'function') {
+            removeDone();
+          }
           tooltipManager.remove({ id: tooltip.id, uniqueId: tooltip.uniqueId });
           if (typeof onClose === "function") {
             onClose();

@@ -1,11 +1,6 @@
 .tooltipContainer {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
   will-change: opacity, transform;
-  transition: opacity 500ms ease-in-out;
-}
-
-.tooltipVisible {
-  /* Controlled by inline style now, but keep class if needed */
 }
 
 .shake {
@@ -18,4 +13,8 @@
   50% { transform: translateX(5px); }
   75% { transform: translateX(-5px); }
   100% { transform: translateX(0); }
+}
+
+.tooltipPointer {
+    will-change: opacity, transform;
 }

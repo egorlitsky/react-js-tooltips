@@ -71,12 +71,18 @@ export const TooltipWrapper = (props: IProps) => {
   }, [triggerType, uniqueId, props, blocker, targetRef, tooltip]);
 
   return triggerType === TooltipTriggerType.CLICK ? (
-    <div ref={targetRef} className={className} onClick={onTargetClick}>
+    <span style={styles.tooltipWrapper} ref={targetRef} className={className} onClick={onTargetClick}>
       {children}
-    </div>
+    </span>
   ) : (
-    <div ref={targetRef} className={className}>
+    <span style={styles.tooltipWrapper} ref={targetRef} className={className}>
       {children}
-    </div>
+    </span>
   );
 };
+
+const styles = {
+  tooltipWrapper: {
+    display: 'inline-block'
+  }
+}

@@ -4,7 +4,7 @@ export * from './core/TooltipBackDrop';
 export * from './core/TooltipContainer';
 export * from './core/TooltipPointer';
 export * from './core/TooltipWrapper';
-export * from './core/types';
+export * from './types/types';
 export * from './core/constants/constants';
 export * from './core/hooks/useEscape';
 export * from './core/hooks/useMeasureByRef';

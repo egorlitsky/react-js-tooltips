@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import { ITooltipInner, TooltipTriggerType } from "./types";
+import { ITooltipInner, TooltipTriggerType } from "../types/types";
 import { useTooltipManager } from "./hooks/useTooltipManager";
 
 interface IProps extends Omit<ITooltipInner, "id" | "target"> {

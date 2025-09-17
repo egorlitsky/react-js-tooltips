@@ -1,6 +1,6 @@
 import { RefObject, useCallback, useEffect, useState } from "react";
 
-import { IPosition, ISize } from "../types";
+import { IPosition, ISize } from "../../types/types";
 import useWindowDimensions from "./useWindowDimensions";
 
 interface IResult {

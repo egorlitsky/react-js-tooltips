@@ -1,5 +1,5 @@
 import React from "react";
-import { IPosition, PointerPlacement } from "./types";
+import { IPosition, PointerPlacement } from "../types/types";
 
 import {
   TOOLTIP_POINTER_VERTICAL_WIDTH,

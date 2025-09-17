@@ -14,7 +14,7 @@ import {
   ITooltipMethods,
   ITooltipAbstraction,
   ITooltipChildrenMethods,
-} from "./types";
+} from "../types/types";
 
 export const TooltipAbstraction: React.ForwardRefExoticComponent<ITooltipAbstraction> =
   forwardRef<ITooltipMethods, ITooltipAbstraction>((props, ref) => {

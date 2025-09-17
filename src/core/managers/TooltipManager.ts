@@ -1,4 +1,4 @@
-import { ITooltipInner } from "../types";
+import { ITooltipInner } from "../../types/types";
 import { tooltipStore } from "../stores/tooltipStore";
 
 export class TooltipManager {

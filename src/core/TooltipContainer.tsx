@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ITooltipInner } from "./types";
+import { ITooltipInner } from "../types/types";
 import styles from "./TooltipContainer.module.css";
 import { TooltipAbstraction } from "./TooltipAbstraction";
 import { useTooltipStore } from "./stores/useTooltipStore";

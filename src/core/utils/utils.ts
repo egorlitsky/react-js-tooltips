@@ -8,7 +8,7 @@ import {
   TOOLTIP_POINTER_HORIZONTAL_HEIGHT,
 } from "../constants/constants";
 
-import { PointerPlacement, IPosition, ISize, TooltipPlacement } from "../types";
+import { PointerPlacement, IPosition, ISize, TooltipPlacement } from "../../types/types";
 
 interface ITooltipPositionParams {
   targetPosition: IPosition;

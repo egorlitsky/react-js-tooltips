@@ -1,5 +1,5 @@
 import { Store } from "react-stores";
-import { ITooltipInner } from "../types";
+import { ITooltipInner } from "../../types/types";
 
 export interface TooltipStoreState {
   tooltips: ITooltipInner[];

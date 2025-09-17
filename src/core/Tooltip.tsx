@@ -14,7 +14,7 @@ import {
   TooltipPlacement,
   PointerPlacement,
   ITooltipChildrenMethods,
-} from "./types";
+} from "../types/types";
 
 import {
   TOOLTIP_MAXIMUM_WIDTH,

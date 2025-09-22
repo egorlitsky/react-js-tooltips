@@ -6,7 +6,7 @@ import React, {
   forwardRef,
   useCallback,
   useImperativeHandle,
-} from "react";
+} from 'react';
 
 import {
   ISize,
@@ -14,7 +14,7 @@ import {
   TooltipPlacement,
   PointerPlacement,
   ITooltipChildrenMethods,
-} from "../types/types";
+} from '../types/types';
 
 import {
   TOOLTIP_MAXIMUM_WIDTH,
@@ -24,16 +24,16 @@ import {
   TOOLTIP_DEFAULT_BACKGROUND_COLOR,
   TOOLTIP_SHAKE_ANIMATION_DURATION,
   TOOLTIP_OPACITY_ANIMATION_DURATION,
-} from "./constants/constants";
+} from './constants/constants';
 
-import { TooltipPointer } from "./TooltipPointer";
-import { getTooltipPosition } from "./utils/utils";
+import { TooltipPointer } from './TooltipPointer';
+import { getTooltipPosition } from './utils/utils';
 
-import { useOnLayout } from "./hooks/useOnLayout";
-import { useMeasureByRef } from "./hooks/useMeasureByRef";
-import useWindowDimensions from "./hooks/useWindowDimensions";
+import { useOnLayout } from './hooks/useOnLayout';
+import { useMeasureByRef } from './hooks/useMeasureByRef';
+import useWindowDimensions from './hooks/useWindowDimensions';
 
-import styles from "./Tooltip.module.css";
+import styles from './Tooltip.module.css';
 
 interface IProps {
   width?: number;
@@ -62,7 +62,7 @@ export const Tooltip = forwardRef<ITooltipChildrenMethods, IProps>(
       containerMaxHeight = TOOLTIP_MAXIMUM_HEIGHT,
       backgroundColor = TOOLTIP_DEFAULT_BACKGROUND_COLOR,
     },
-    ref
+    ref,
   ) => {
     const screenDimensions = useWindowDimensions();
     const tooltipRef = useRef<HTMLDivElement>(null);
@@ -134,7 +134,7 @@ export const Tooltip = forwardRef<ITooltipChildrenMethods, IProps>(
           styles.tooltipContainer,
           isVisible && styles.tooltipVisible,
           shake && styles.shake,
-        ].join(" ")}
+        ].join(' ')}
       >
         {tooltipPosition?.pointerPosition &&
           tooltipPosition.pointerPlacement !== PointerPlacement.NONE && (
@@ -148,7 +148,7 @@ export const Tooltip = forwardRef<ITooltipChildrenMethods, IProps>(
         <div
           ref={tooltipRef}
           style={{
-            position: "absolute",
+            position: 'absolute',
             left: tooltipPosition?.x,
             top: tooltipPosition?.y,
             width: width || undefined,
@@ -160,7 +160,7 @@ export const Tooltip = forwardRef<ITooltipChildrenMethods, IProps>(
             backgroundColor,
             borderRadius,
             opacity: isVisible ? 1 : 0,
-            pointerEvents: isVisible ? "auto" : "none",
+            pointerEvents: isVisible ? 'auto' : 'none',
             transition: `opacity ${TOOLTIP_OPACITY_ANIMATION_DURATION}ms ease-in-out`,
           }}
         >
@@ -168,5 +168,5 @@ export const Tooltip = forwardRef<ITooltipChildrenMethods, IProps>(
         </div>
       </div>
     );
-  }
+  },
 );

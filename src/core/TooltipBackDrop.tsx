@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./TooltipBackDrop.module.css";
+import React from 'react';
+import styles from './TooltipBackDrop.module.css';
 
 interface ITooltipBackDrop {
   onBackDropPress?: React.MouseEventHandler<HTMLDivElement>;

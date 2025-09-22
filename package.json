@@ -17,7 +17,9 @@
   ],
   "scripts": {
     "build": "tsc && npm run copy-css",
-    "copy-css": "mkdir -p dist/core && cp src/core/*.module.css dist/core/ && cp src/core/*.css dist/core/ || true"
+    "copy-css": "mkdir -p dist/core && cp src/core/*.module.css dist/core/ && cp src/core/*.css dist/core/ || true",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "eslintConfig": {
     "extends": [
@@ -38,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "prettier": "^3.6.2",
     "typed-css-modules": "^0.9.1"
   },
   "peerDependencies": {

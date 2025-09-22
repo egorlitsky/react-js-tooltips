@@ -1,5 +1,5 @@
-import React from "react";
-import { TooltipWrapper, Tooltip } from "react-js-tooltips";
+import React from 'react';
+import { TooltipWrapper, Tooltip } from 'react-js-tooltips';
 
 export const TooltipDemo: React.FC = () => {
   return (
@@ -17,9 +17,9 @@ export const TooltipDemo: React.FC = () => {
     >
       <div
         style={{
-          width: "100px",
-          height: "50px",
-          backgroundColor: "blue",
+          width: '100px',
+          height: '50px',
+          backgroundColor: 'blue',
         }}
       />
     </TooltipWrapper>

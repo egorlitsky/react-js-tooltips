@@ -1,4 +1,4 @@
-import { tooltipManager } from "../managers/TooltipManager";
+import { tooltipManager } from '../managers/TooltipManager';
 
 export const useTooltipManager = () => {
   return tooltipManager;

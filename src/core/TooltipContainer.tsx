@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { ITooltipInner } from "../types/types";
-import styles from "./TooltipContainer.module.css";
-import { TooltipAbstraction } from "./TooltipAbstraction";
-import { useTooltipStore } from "./stores/useTooltipStore";
-import { tooltipManager } from "./managers/TooltipManager";
+import { ITooltipInner } from '../types/types';
+import styles from './TooltipContainer.module.css';
+import { TooltipAbstraction } from './TooltipAbstraction';
+import { useTooltipStore } from './stores/useTooltipStore';
+import { tooltipManager } from './managers/TooltipManager';
 
 interface ITooltipContainer {
   disableAnimation?: boolean;
@@ -28,7 +28,7 @@ export const TooltipContainer: React.FC<ITooltipContainer> = (props) => {
     } = tooltip;
 
     const disableAnimation =
-      typeof disableAnimationPerTooltip === "boolean"
+      typeof disableAnimationPerTooltip === 'boolean'
         ? disableAnimationPerTooltip
         : disableAnimationForAllTooltips;
 
@@ -46,7 +46,7 @@ export const TooltipContainer: React.FC<ITooltipContainer> = (props) => {
             removeDone();
           }
           tooltipManager.remove({ id: tooltip.id, uniqueId: tooltip.uniqueId });
-          if (typeof onClose === "function") {
+          if (typeof onClose === 'function') {
             onClose();
           }
         }}

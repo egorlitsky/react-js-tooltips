@@ -4,7 +4,7 @@ type LayoutCallback = (rect: DOMRect | null) => void;
 
 export const useOnLayout = (
   ref: RefObject<HTMLElement>,
-  callback: LayoutCallback
+  callback: LayoutCallback,
 ) => {
   useEffect(() => {
     if (!ref.current) return;

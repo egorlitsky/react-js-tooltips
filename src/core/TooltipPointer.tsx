@@ -1,5 +1,5 @@
-import React from "react";
-import { IPosition, PointerPlacement } from "../types/types";
+import React from 'react';
+import { IPosition, PointerPlacement } from '../types/types';
 
 import {
   TOOLTIP_POINTER_VERTICAL_WIDTH,
@@ -7,9 +7,9 @@ import {
   TOOLTIP_POINTER_HORIZONTAL_WIDTH,
   TOOLTIP_DEFAULT_BACKGROUND_COLOR,
   TOOLTIP_POINTER_HORIZONTAL_HEIGHT,
-} from "./constants/constants";
+} from './constants/constants';
 
-import styles from "./TooltipPointer.module.css";
+import styles from './TooltipPointer.module.css';
 
 interface IProps {
   backgroundColor?: string;
@@ -30,7 +30,7 @@ export const TooltipPointer: React.FC<IProps> = (props: IProps) => {
     <div
       className={styles.tooltipPointer}
       style={{
-        position: "absolute",
+        position: 'absolute',
         left: position.x,
         top: position.y,
         width:
@@ -43,10 +43,10 @@ export const TooltipPointer: React.FC<IProps> = (props: IProps) => {
           placement === PointerPlacement.BOTTOM
             ? TOOLTIP_POINTER_HORIZONTAL_HEIGHT
             : TOOLTIP_POINTER_VERTICAL_HEIGHT,
-        pointerEvents: isVisible ? "auto" : "none",
+        pointerEvents: isVisible ? 'auto' : 'none',
         zIndex: 1000,
         opacity: isVisible ? 1 : 0,
-        transition: "opacity 500ms ease-in-out",
+        transition: 'opacity 500ms ease-in-out',
       }}
     >
       {placement === PointerPlacement.TOP && (

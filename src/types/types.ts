@@ -1,4 +1,4 @@
-import React, { RefObject } from "react";
+import React, { RefObject } from 'react';
 
 export interface ITooltipMethods {
   remove: () => void;
@@ -24,7 +24,7 @@ export type TRenderOverlayTooltip = {
   disableAnimation?: boolean;
 } & IRenderOverlay;
 export type TRenderOverlayFunction = (
-  tooltip: TRenderOverlayTooltip
+  tooltip: TRenderOverlayTooltip,
 ) => React.ReactNode;
 
 export type IRenderOverlayToolTip = {
@@ -61,35 +61,35 @@ export interface ITooltipAbstraction {
 }
 
 export enum TooltipTriggerType {
-  CLICK = "click", // by clicking a target / icon
-  CODE = "code", // by some code - from another tooltip or manager
+  CLICK = 'click', // by clicking a target / icon
+  CODE = 'code', // by some code - from another tooltip or manager
 }
 
 export enum TooltipPlacement {
-  TOP = "top",
-  LEFT = "left",
-  BOTTOM = "bottom",
-  RIGHT = "right",
+  TOP = 'top',
+  LEFT = 'left',
+  BOTTOM = 'bottom',
+  RIGHT = 'right',
 
-  TOP_LEFT = "top-left",
-  TOP_RIGHT = "top-right",
-  BOTTOM_LEFT = "bottom-left",
-  BOTTOM_RIGHT = "bottom-right",
+  TOP_LEFT = 'top-left',
+  TOP_RIGHT = 'top-right',
+  BOTTOM_LEFT = 'bottom-left',
+  BOTTOM_RIGHT = 'bottom-right',
 
-  LEFT_TOP = "left-top",
-  LEFT_BOTTOM = "left-bottom",
-  RIGHT_TOP = "right-top",
-  RIGHT_BOTTOM = "right-bottom",
+  LEFT_TOP = 'left-top',
+  LEFT_BOTTOM = 'left-bottom',
+  RIGHT_TOP = 'right-top',
+  RIGHT_BOTTOM = 'right-bottom',
 
-  NONE = "none",
+  NONE = 'none',
 }
 
 export enum PointerPlacement {
-  TOP = "top",
-  LEFT = "left",
-  BOTTOM = "bottom",
-  RIGHT = "right",
-  NONE = "none",
+  TOP = 'top',
+  LEFT = 'left',
+  BOTTOM = 'bottom',
+  RIGHT = 'right',
+  NONE = 'none',
 }
 
 export interface ISize {

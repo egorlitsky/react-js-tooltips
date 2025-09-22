@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-const KEY_NAME_ESC = "Escape";
-const KEY_EVENT_TYPE = "keyup";
+const KEY_NAME_ESC = 'Escape';
+const KEY_EVENT_TYPE = 'keyup';
 
 export const useEscape = (cb: () => void, enabled: boolean = true) => {
   useEffect(() => {

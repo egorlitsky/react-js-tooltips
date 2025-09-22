@@ -5,16 +5,16 @@ import React, {
   useImperativeHandle,
   useRef,
   useState,
-} from "react";
+} from 'react';
 
-import { useEscape } from "./hooks/useEscape";
-import { TooltipBackDrop } from "./TooltipBackDrop";
-import useWindowDimensions from "./hooks/useWindowDimensions";
+import { useEscape } from './hooks/useEscape';
+import { TooltipBackDrop } from './TooltipBackDrop';
+import useWindowDimensions from './hooks/useWindowDimensions';
 import {
   ITooltipMethods,
   ITooltipAbstraction,
   ITooltipChildrenMethods,
-} from "../types/types";
+} from '../types/types';
 
 export const TooltipAbstraction: React.ForwardRefExoticComponent<ITooltipAbstraction> =
   forwardRef<ITooltipMethods, ITooltipAbstraction>((props, ref) => {
@@ -24,7 +24,7 @@ export const TooltipAbstraction: React.ForwardRefExoticComponent<ITooltipAbstrac
       onOpen,
       target,
       disableAnimation,
-      backdropColor = "rgba(0, 0, 0, 0.01)",
+      backdropColor = 'rgba(0, 0, 0, 0.01)',
       blocker: blockerProp = false,
     } = props;
 
@@ -33,12 +33,12 @@ export const TooltipAbstraction: React.ForwardRefExoticComponent<ITooltipAbstrac
 
     const { height: screenHeight, width: screenWidth } = useWindowDimensions();
     const [orientation] = useState(
-      screenWidth > screenHeight ? "landscape" : "portrait"
+      screenWidth > screenHeight ? 'landscape' : 'portrait',
     );
 
     useEffect(() => {
       const newOrientation =
-        screenWidth > screenHeight ? "landscape" : "portrait";
+        screenWidth > screenHeight ? 'landscape' : 'portrait';
       if (orientation !== newOrientation) {
         onClose?.();
       }
@@ -54,15 +54,15 @@ export const TooltipAbstraction: React.ForwardRefExoticComponent<ITooltipAbstrac
       (closeCallback?: () => void) => {
         if (disableAnimation) {
           onClose();
-          typeof closeCallback === "function" && closeCallback();
+          typeof closeCallback === 'function' && closeCallback();
         } else {
           tooltipRef.current?.animateOut(() => {
             onClose();
-            typeof closeCallback === "function" && closeCallback();
+            typeof closeCallback === 'function' && closeCallback();
           });
         }
       },
-      [disableAnimation, onClose, tooltipRef]
+      [disableAnimation, onClose, tooltipRef],
     );
 
     const onBackDropPress = useCallback(() => {
@@ -77,7 +77,7 @@ export const TooltipAbstraction: React.ForwardRefExoticComponent<ITooltipAbstrac
       (closeCallback?: () => void) => {
         closeTooltip(closeCallback);
       },
-      [closeTooltip]
+      [closeTooltip],
     );
 
     const forceRemove = useCallback(() => {
@@ -92,7 +92,7 @@ export const TooltipAbstraction: React.ForwardRefExoticComponent<ITooltipAbstrac
         remove,
         open,
       }),
-      [remove]
+      [remove],
     );
 
     useEffect(() => {
@@ -105,7 +105,7 @@ export const TooltipAbstraction: React.ForwardRefExoticComponent<ITooltipAbstrac
           onBackDropPress={onBackDropPress}
           backgroundColor={backdropColor}
         />
-        {typeof children === "function"
+        {typeof children === 'function'
           ? children({
               ref: tooltipRef,
               remove,

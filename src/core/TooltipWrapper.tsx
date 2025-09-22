@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
-import { ITooltipInner, TooltipTriggerType } from "../types/types";
-import { useTooltipManager } from "./hooks/useTooltipManager";
+import { ITooltipInner, TooltipTriggerType } from '../types/types';
+import { useTooltipManager } from './hooks/useTooltipManager';
 
-interface IProps extends Omit<ITooltipInner, "id" | "target"> {
+interface IProps extends Omit<ITooltipInner, 'id' | 'target'> {
   blocker?: boolean;
   children: React.ReactNode;
   disableAnimation?: boolean;
@@ -34,7 +34,7 @@ export const TooltipWrapper = (props: IProps) => {
         tooltip.add({
           ...props,
           target: targetRef,
-        })
+        }),
       );
     }
   }, [props, targetRef, tooltip]);
@@ -52,7 +52,7 @@ export const TooltipWrapper = (props: IProps) => {
     if (triggerType === TooltipTriggerType.CODE) {
       if (!uniqueId) {
         throw new Error(
-          "TooltipWrapper: uniqueId is required when triggerType is CODE"
+          'TooltipWrapper: uniqueId is required when triggerType is CODE',
         );
       }
 
@@ -71,7 +71,12 @@ export const TooltipWrapper = (props: IProps) => {
   }, [triggerType, uniqueId, props, blocker, targetRef, tooltip]);
 
   return triggerType === TooltipTriggerType.CLICK ? (
-    <span style={styles.tooltipWrapper} ref={targetRef} className={className} onClick={onTargetClick}>
+    <span
+      style={styles.tooltipWrapper}
+      ref={targetRef}
+      className={className}
+      onClick={onTargetClick}
+    >
       {children}
     </span>
   ) : (
@@ -83,6 +88,6 @@ export const TooltipWrapper = (props: IProps) => {
 
 const styles = {
   tooltipWrapper: {
-    display: 'inline-block'
-  }
-}
+    display: 'inline-block',
+  },
+};

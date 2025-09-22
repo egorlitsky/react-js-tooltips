@@ -1,9 +1,9 @@
-import { Store } from "react-stores";
-import { ITooltipInner } from "../../types/types";
+import { Store } from 'react-stores';
+import { ITooltipInner } from '../../types/types';
 
 export interface TooltipStoreState {
   tooltips: ITooltipInner[];
-  awaitingTooltips: Omit<ITooltipInner, "id">[];
+  awaitingTooltips: Omit<ITooltipInner, 'id'>[];
 }
 
 export const tooltipStore = new Store<TooltipStoreState>(
@@ -12,6 +12,6 @@ export const tooltipStore = new Store<TooltipStoreState>(
     awaitingTooltips: [], // target is visible, but tooltip is not displayed
   },
   {
-    name: "tooltipStore",
-  }
+    name: 'tooltipStore',
+  },
 );

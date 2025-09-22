@@ -1,7 +1,7 @@
-import { RefObject, useCallback, useEffect, useState } from "react";
+import { RefObject, useCallback, useEffect, useState } from 'react';
 
-import { IPosition, ISize } from "../../types/types";
-import useWindowDimensions from "./useWindowDimensions";
+import { IPosition, ISize } from '../../types/types';
+import useWindowDimensions from './useWindowDimensions';
 
 interface IResult {
   position: IPosition | null;
@@ -11,12 +11,12 @@ interface IResult {
 const ORIENTATION_DELAY = 700;
 
 export const useMeasureByRef = (
-  ref: RefObject<HTMLDivElement | null> | undefined
+  ref: RefObject<HTMLDivElement | null> | undefined,
 ): IResult => {
   const [result, setResult] = useState<IResult>({ position: null, size: null });
   const { width: screenWidth, height: screenHeight } = useWindowDimensions();
-  const [orientation, setOrientation] = useState<"landscape" | "portrait">(
-    screenWidth > screenHeight ? "landscape" : "portrait"
+  const [orientation, setOrientation] = useState<'landscape' | 'portrait'>(
+    screenWidth > screenHeight ? 'landscape' : 'portrait',
   );
 
   const measure = useCallback(() => {
@@ -34,7 +34,7 @@ export const useMeasureByRef = (
 
   useEffect(() => {
     const newOrientation =
-      screenWidth > screenHeight ? "landscape" : "portrait";
+      screenWidth > screenHeight ? 'landscape' : 'portrait';
     if (orientation !== newOrientation) {
       setTimeout(measure, ORIENTATION_DELAY);
       setOrientation(newOrientation);

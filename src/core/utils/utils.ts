@@ -6,9 +6,14 @@ import {
   TOOLTIP_POINTER_VERTICAL_HEIGHT,
   TOOLTIP_POINTER_HORIZONTAL_WIDTH,
   TOOLTIP_POINTER_HORIZONTAL_HEIGHT,
-} from "../constants/constants";
+} from '../constants/constants';
 
-import { PointerPlacement, IPosition, ISize, TooltipPlacement } from "../../types/types";
+import {
+  PointerPlacement,
+  IPosition,
+  ISize,
+  TooltipPlacement,
+} from '../../types/types';
 
 interface ITooltipPositionParams {
   targetPosition: IPosition;
@@ -68,7 +73,7 @@ const getPointerSizes = (pointer: boolean): IPointerSize => {
  */
 const getSuitablePlacement = (
   tooltipPositionParams: ITooltipPositionParams,
-  pointerSizes: IPointerSize
+  pointerSizes: IPointerSize,
 ): TooltipPlacement => {
   const {
     contentSize,
@@ -123,7 +128,7 @@ const getSuitablePlacement = (
   // check if any of classic placements is possible
   if (Object.values(fitMap).some((isFit) => isFit)) {
     return Object.keys(fitMap).filter(
-      (key) => fitMap[key]
+      (key) => fitMap[key],
     )[0] as TooltipPlacement;
   } else {
     const screenCenterX = round(screenWidth / 2);
@@ -204,7 +209,7 @@ const getSuitablePlacement = (
 const getPositionByPlacement = (
   placement: TooltipPlacement,
   tooltipPositionParams: ITooltipPositionParams,
-  pointerSizes: IPointerSize
+  pointerSizes: IPointerSize,
 ): ITooltipPositionResult => {
   const {
     forcePointer,
@@ -226,7 +231,7 @@ const getPositionByPlacement = (
     case TooltipPlacement.TOP:
       return {
         x: round(
-          targetX + Math.round(targetWidth / 2) - Math.round(overlayWidth / 2)
+          targetX + Math.round(targetWidth / 2) - Math.round(overlayWidth / 2),
         ),
         y: round(targetY - (overlayHeight + pointerSizes.hHeight)),
         pointerPlacement: PointerPlacement.TOP,
@@ -235,12 +240,12 @@ const getPositionByPlacement = (
           targetSize,
           PointerPlacement.TOP,
           screenDimensions,
-          forcePointer
+          forcePointer,
         ),
       };
     case TooltipPlacement.TOP_LEFT:
       x = round(
-        targetX - overlayWidth + targetWidth + TOOLTIP_OFFSET_FOR_POINTER
+        targetX - overlayWidth + targetWidth + TOOLTIP_OFFSET_FOR_POINTER,
       );
       return {
         x: x < 0 ? 0 + TOOLTIP_HORIZONTAL_MARGIN : x,
@@ -251,7 +256,7 @@ const getPositionByPlacement = (
           targetSize,
           PointerPlacement.TOP,
           screenDimensions,
-          forcePointer
+          forcePointer,
         ),
       };
     case TooltipPlacement.TOP_RIGHT:
@@ -268,13 +273,13 @@ const getPositionByPlacement = (
           targetSize,
           PointerPlacement.TOP,
           screenDimensions,
-          forcePointer
+          forcePointer,
         ),
       };
     case TooltipPlacement.BOTTOM:
       return {
         x: round(
-          targetX + Math.round(targetWidth / 2) - Math.round(overlayWidth / 2)
+          targetX + Math.round(targetWidth / 2) - Math.round(overlayWidth / 2),
         ),
         y: round(targetY + targetHeight + pointerSizes.hHeight),
         pointerPlacement: PointerPlacement.BOTTOM,
@@ -283,12 +288,12 @@ const getPositionByPlacement = (
           targetSize,
           PointerPlacement.BOTTOM,
           screenDimensions,
-          forcePointer
+          forcePointer,
         ),
       };
     case TooltipPlacement.BOTTOM_LEFT:
       x = round(
-        targetX - overlayWidth + targetWidth + TOOLTIP_OFFSET_FOR_POINTER
+        targetX - overlayWidth + targetWidth + TOOLTIP_OFFSET_FOR_POINTER,
       );
       return {
         x: x < 0 ? 0 + TOOLTIP_HORIZONTAL_MARGIN : x,
@@ -299,7 +304,7 @@ const getPositionByPlacement = (
           targetSize,
           PointerPlacement.BOTTOM,
           screenDimensions,
-          forcePointer
+          forcePointer,
         ),
       };
     case TooltipPlacement.BOTTOM_RIGHT:
@@ -316,14 +321,16 @@ const getPositionByPlacement = (
           targetSize,
           PointerPlacement.BOTTOM,
           screenDimensions,
-          forcePointer
+          forcePointer,
         ),
       };
     case TooltipPlacement.LEFT:
       return {
         x: round(targetX - (overlayWidth + pointerSizes.vWidth)),
         y: round(
-          targetY + Math.round(targetHeight / 2) - Math.round(overlayHeight / 2)
+          targetY +
+            Math.round(targetHeight / 2) -
+            Math.round(overlayHeight / 2),
         ),
         pointerPlacement: PointerPlacement.LEFT,
         pointerPosition: getTooltipPointerPosition(
@@ -331,7 +338,7 @@ const getPositionByPlacement = (
           targetSize,
           PointerPlacement.LEFT,
           screenDimensions,
-          forcePointer
+          forcePointer,
         ),
       };
     case TooltipPlacement.LEFT_TOP:
@@ -342,7 +349,7 @@ const getPositionByPlacement = (
         TOOLTIP_OFFSET_FOR_POINTER * 8;
       y = y < 0 ? 0 : y;
       y = round(
-        y + overlayHeight > screenHeight ? screenHeight - overlayHeight : y
+        y + overlayHeight > screenHeight ? screenHeight - overlayHeight : y,
       );
       return {
         x: round(targetX - (overlayWidth + pointerSizes.vWidth)),
@@ -353,7 +360,7 @@ const getPositionByPlacement = (
           targetSize,
           PointerPlacement.LEFT,
           screenDimensions,
-          forcePointer
+          forcePointer,
         ),
       };
     case TooltipPlacement.LEFT_BOTTOM:
@@ -361,7 +368,7 @@ const getPositionByPlacement = (
         targetY - Math.round(targetHeight / 2) - TOOLTIP_OFFSET_FOR_POINTER * 3;
       y = y < 0 ? 0 : y;
       y = round(
-        y + overlayHeight > screenHeight ? screenHeight - overlayHeight : y
+        y + overlayHeight > screenHeight ? screenHeight - overlayHeight : y,
       );
       return {
         x: round(targetX - (overlayWidth + pointerSizes.vWidth)),
@@ -372,14 +379,16 @@ const getPositionByPlacement = (
           targetSize,
           PointerPlacement.LEFT,
           screenDimensions,
-          forcePointer
+          forcePointer,
         ),
       };
     case TooltipPlacement.RIGHT:
       return {
         x: round(targetX + targetWidth + pointerSizes.vWidth),
         y: round(
-          targetY + Math.round(targetHeight / 2) - Math.round(overlayHeight / 2)
+          targetY +
+            Math.round(targetHeight / 2) -
+            Math.round(overlayHeight / 2),
         ),
         pointerPlacement: PointerPlacement.RIGHT,
         pointerPosition: getTooltipPointerPosition(
@@ -387,7 +396,7 @@ const getPositionByPlacement = (
           targetSize,
           PointerPlacement.RIGHT,
           screenDimensions,
-          forcePointer
+          forcePointer,
         ),
       };
     case TooltipPlacement.RIGHT_TOP:
@@ -398,14 +407,14 @@ const getPositionByPlacement = (
         TOOLTIP_OFFSET_FOR_POINTER * 7;
       y = y < 0 ? 0 : y;
       y = round(
-        y + overlayHeight > screenHeight ? screenHeight - overlayHeight : y
+        y + overlayHeight > screenHeight ? screenHeight - overlayHeight : y,
       );
       return {
         x: round(
           targetX +
             targetWidth +
             pointerSizes.vWidth -
-            TOOLTIP_OFFSET_FOR_POINTER
+            TOOLTIP_OFFSET_FOR_POINTER,
         ),
         y,
         pointerPlacement: PointerPlacement.RIGHT,
@@ -414,21 +423,21 @@ const getPositionByPlacement = (
           targetSize,
           PointerPlacement.RIGHT,
           screenDimensions,
-          forcePointer
+          forcePointer,
         ),
       };
     case TooltipPlacement.RIGHT_BOTTOM:
       y = targetY - Math.round(targetHeight / 2) - TOOLTIP_OFFSET_FOR_POINTER;
       y = y < 0 ? 0 : y;
       y = round(
-        y + overlayHeight > screenHeight ? screenHeight - overlayHeight : y
+        y + overlayHeight > screenHeight ? screenHeight - overlayHeight : y,
       );
       return {
         x: round(
           targetX +
             targetWidth +
             pointerSizes.vWidth -
-            TOOLTIP_OFFSET_FOR_POINTER
+            TOOLTIP_OFFSET_FOR_POINTER,
         ),
         y,
         pointerPlacement: PointerPlacement.RIGHT,
@@ -437,7 +446,7 @@ const getPositionByPlacement = (
           targetSize,
           PointerPlacement.RIGHT,
           screenDimensions,
-          forcePointer
+          forcePointer,
         ),
       };
     case TooltipPlacement.NONE:
@@ -452,7 +461,7 @@ const getPositionByPlacement = (
 };
 
 export const getTooltipPosition = (
-  params: ITooltipPositionParams
+  params: ITooltipPositionParams,
 ): ITooltipPositionResult => {
   const { pointer = false } = params;
   const pointerSizes = getPointerSizes(pointer);
@@ -465,7 +474,7 @@ export const getTooltipPointerPosition = (
   targetSize: ISize,
   pointerPlacement: PointerPlacement,
   screenDimensions: ISize,
-  forcePointer = false
+  forcePointer = false,
 ): IPosition | null => {
   const { x: targetX, y: targetY } = targetPosition;
   const { width: targetWidth, height: targetHeight } = targetSize;
@@ -488,7 +497,7 @@ export const getTooltipPointerPosition = (
         x: round(
           targetX +
             Math.round(targetWidth / 2) -
-            Math.round(TOOLTIP_POINTER_HORIZONTAL_WIDTH / 2)
+            Math.round(TOOLTIP_POINTER_HORIZONTAL_WIDTH / 2),
         ),
         y: round(targetY - TOOLTIP_POINTER_HORIZONTAL_HEIGHT - 6),
       };
@@ -498,7 +507,7 @@ export const getTooltipPointerPosition = (
         y: round(
           targetY +
             Math.round(targetHeight / 2) -
-            Math.round(TOOLTIP_POINTER_VERTICAL_HEIGHT / 2)
+            Math.round(TOOLTIP_POINTER_VERTICAL_HEIGHT / 2),
         ),
       };
     case PointerPlacement.BOTTOM:
@@ -506,7 +515,7 @@ export const getTooltipPointerPosition = (
         x: round(
           targetX +
             Math.round(targetWidth / 2) -
-            Math.round(TOOLTIP_POINTER_HORIZONTAL_WIDTH / 2)
+            Math.round(TOOLTIP_POINTER_HORIZONTAL_WIDTH / 2),
         ),
         y: round(targetY + targetHeight - 5),
       };
@@ -516,7 +525,7 @@ export const getTooltipPointerPosition = (
         y: round(
           targetY +
             Math.round(targetHeight / 2) -
-            Math.round(TOOLTIP_POINTER_VERTICAL_HEIGHT / 2)
+            Math.round(TOOLTIP_POINTER_VERTICAL_HEIGHT / 2),
         ),
       };
     default:

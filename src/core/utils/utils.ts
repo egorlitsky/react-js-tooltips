@@ -245,7 +245,7 @@ const getPositionByPlacement = (
       };
     case TooltipPlacement.TOP_LEFT:
       x = round(
-        targetX - overlayWidth + targetWidth + TOOLTIP_OFFSET_FOR_POINTER,
+        targetX - overlayWidth + targetWidth + TOOLTIP_OFFSET_FOR_POINTER - TOOLTIP_HORIZONTAL_MARGIN,
       );
       return {
         x: x < 0 ? 0 + TOOLTIP_HORIZONTAL_MARGIN : x,
@@ -293,7 +293,7 @@ const getPositionByPlacement = (
       };
     case TooltipPlacement.BOTTOM_LEFT:
       x = round(
-        targetX - overlayWidth + targetWidth + TOOLTIP_OFFSET_FOR_POINTER,
+        targetX - overlayWidth + targetWidth + TOOLTIP_OFFSET_FOR_POINTER - TOOLTIP_HORIZONTAL_MARGIN,
       );
       return {
         x: x < 0 ? 0 + TOOLTIP_HORIZONTAL_MARGIN : x,

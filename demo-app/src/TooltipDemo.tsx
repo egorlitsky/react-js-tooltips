@@ -19,7 +19,7 @@ export const TooltipDemo: React.FC = () => {
         <div
           style={{
             width: '100px',
-            height: '50px',
+            height: '100%',
             backgroundColor: 'blue',
           }}
         >
@@ -44,7 +44,6 @@ export const TooltipDemo: React.FC = () => {
         style={{
           width: '100%',
           height: '100px',
-          backgroundColor: 'red',
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'space-between',
@@ -58,7 +57,6 @@ export const TooltipDemo: React.FC = () => {
         style={{
           width: '100%',
           height: '100px',
-          backgroundColor: 'blue',
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'space-between',
@@ -72,7 +70,6 @@ export const TooltipDemo: React.FC = () => {
         style={{
           width: '100%',
           height: '100px',
-          backgroundColor: 'green',
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'space-between',

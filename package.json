@@ -1,12 +1,12 @@
 {
   "name": "react-js-tooltips",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A powerful and flexible React library for adding customizable tooltips to your application.",
   "private": false,
   "homepage": "https://github.com/egorlitsky/react-js-tooltips",
   "repository": {
     "type": "git",
-    "url": "https://github.com/egorlitsky/react-js-tooltips.git"
+    "url": "git+https://github.com/egorlitsky/react-js-tooltips.git"
   },
   "bugs": {
     "url": "https://github.com/egorlitsky/react-js-tooltips/issues"

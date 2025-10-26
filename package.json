@@ -1,9 +1,32 @@
 {
   "name": "react-js-tooltips",
-  "version": "0.1.0",
-  "description": "Tooltip library based on ReactJS",
+  "version": "1.0.0",
+  "description": "Powerful and flexible React library for adding customizable tooltips to your application.",
   "private": false,
-  "keywords": ["react", "react-js", "tooltip", "tooltips", "react-js-tooltips", "tips"],
+  "homepage": "https://github.com/egorlitsky/react-js-tooltips",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/egorlitsky/react-js-tooltips.git"
+  },
+  "bugs": {
+    "url": "https://github.com/egorlitsky/react-js-tooltips/issues"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-js",
+    "tooltip",
+    "tooltips",
+    "tooltip-component",
+    "ui",
+    "typescript",
+    "react-component",
+    "react-library",
+    "overlay",
+    "popover",
+    "hint",
+    "helper"
+  ],
   "author": "Vladislav Egorlitskii",
   "license": "MIT",
   "dependencies": {

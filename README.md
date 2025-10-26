@@ -1,20 +1,20 @@
 # react-js-tooltips
 
-A powerful and flexible React library for creating beautiful, customizable tooltips.
+A powerful and flexible React library for adding customizable tooltips to your application.
 
 [![npm version](https://badge.fury.io/js/react-js-tooltips.svg)](https://www.npmjs.com/package/react-js-tooltips)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/egorlitsky/react-js-tooltips/blob/master/LICENSE)
 
 ## 🎯 Features
 
-- ✨ Simple and intuitive API
-- 🎨 Highly customizable (colors, positions, animations)
-- 📱 Responsive design with automatic positioning
-- 🎯 Smart pointer placement
-- 🚀 TypeScript support
-- ⚡ Lightweight and performant
-- 🎭 Multiple placement options
-- 🔄 Programmatic control via TooltipManager
+- Simple and intuitive API
+- Highly customizable (colors, positions, animations)
+- Responsive design with automatic positioning
+- Smart pointer placement
+- TypeScript support
+- Lightweight and performant
+- Multiple placement options
+- Programmatic control via TooltipManager
 
 ## 📦 Installation
 
@@ -49,175 +49,44 @@ import { TooltipWrapper, Tooltip, TooltipTriggerType } from 'react-js-tooltips';
 
 function MyComponent() {
   return (
-    <TooltipWrapper
-      renderOverlay={({ target }) => (
-        <Tooltip target={target}>
-          This is a simple tooltip!
-        </Tooltip>
-      )}
-    >
-      <button>Hover me!</button>
-    </TooltipWrapper>
+      <TooltipWrapper
+        renderOverlay={(tooltipProps: any) => {
+          return (
+            <Tooltip {...tooltipProps} width={240}>
+              <div>
+                <h3>Tooltip Title</h3>
+                <p>This is a tooltip with some content.</p>
+              </div>
+            </Tooltip>
+          );
+        }}
+      >
+        <button>
+          Click me!
+        </button>
+      </TooltipWrapper>
   );
 }
 ```
 
-## 📚 Usage Examples
-
-### Customizable Tooltip
-
-```tsx
-import { 
-  TooltipWrapper, 
-  Tooltip, 
-  TooltipPlacement 
-} from 'react-js-tooltips';
-
-function CustomTooltip() {
-  return (
-    <TooltipWrapper
-      renderOverlay={({ target }) => (
-        <Tooltip
-          target={target}
-          preferredPlacement={TooltipPlacement.TOP}
-          backgroundColor="#333"
-          containerMaxWidth={300}
-          borderRadius={8}
-        >
-          <div style={{ padding: '16px', color: '#fff' }}>
-            <h3>Custom Styled Tooltip</h3>
-            <p>This tooltip has custom colors and sizing!</p>
-          </div>
-        </Tooltip>
-      )}
-      blocker={false}
-      backdropColor="rgba(0,0,0,0.3)"
-      onClose={() => console.log('Tooltip closed')}
-      onOpen={() => console.log('Tooltip opened')}
-    >
-      <button>Click for tooltip</button>
-    </TooltipWrapper>
-  );
-}
-```
-
-### Tooltip with Unique ID (Triggered by Code)
-
-```tsx
-import { 
-  TooltipWrapper, 
-  Tooltip, 
-  TooltipTriggerType,
-  TooltipPlacement 
-} from 'react-js-tooltips';
-
-function CodeTriggeredTooltip() {
-  return (
-    <TooltipWrapper
-      uniqueId="my-tooltip-1"
-      triggerType={TooltipTriggerType.CODE}
-      renderOverlay={({ target }) => (
-        <Tooltip
-          target={target}
-          preferredPlacement={TooltipPlacement.BOTTOM}
-          pointer={true}
-          forcePointer={true}
-        >
-          This tooltip will be triggered programmatically
-        </Tooltip>
-      )}
-    >
-      <span>This element will show tooltip on code trigger</span>
-    </TooltipWrapper>
-  );
-}
-```
-
-### Multiple Tooltips
-
-```tsx
-function MultipleTooltips() {
-  return (
-    <div>
-      <TooltipWrapper
-        renderOverlay={({ target }) => (
-          <Tooltip target={target} preferredPlacement={TooltipPlacement.TOP}>
-            Top tooltip
-          </Tooltip>
-        )}
-      >
-        <button>Top</button>
-      </TooltipWrapper>
-
-      <TooltipWrapper
-        renderOverlay={({ target }) => (
-          <Tooltip target={target} preferredPlacement={TooltipPlacement.RIGHT}>
-            Right tooltip
-          </Tooltip>
-        )}
-      >
-        <button>Right</button>
-      </TooltipWrapper>
-
-      <TooltipWrapper
-        renderOverlay={({ target }) => (
-          <Tooltip target={target} preferredPlacement={TooltipPlacement.BOTTOM}>
-            Bottom tooltip
-          </Tooltip>
-        )}
-      >
-        <button>Bottom</button>
-      </TooltipWrapper>
-
-      <TooltipWrapper
-        renderOverlay={({ target }) => (
-          <Tooltip target={target} preferredPlacement={TooltipPlacement.LEFT}>
-            Left tooltip
-          </Tooltip>
-        )}
-      >
-        <button>Left</button>
-      </TooltipWrapper>
-    </div>
-  );
-}
-```
-
-## 🎮 Programmatic Control with TooltipManager
+### 3. Programmatic Control with TooltipManager
 
 You can control tooltips programmatically using the `TooltipManager`:
 
 ```tsx
 import { useTooltipManager, TooltipTriggerType } from 'react-js-tooltips';
 
-function ControlPanel() {
+function Example() {
   const tooltipManager = useTooltipManager();
 
   const openTooltip = () => {
     // Activates a tooltip with the given uniqueId
-    tooltipManager.activateAwaitingTooltip('my-tooltip-1');
-  };
-
-  const closeTooltip = () => {
-    // Removes a specific tooltip by uniqueId
-    tooltipManager.removeByUniqueId('my-tooltip-1');
-  };
-
-  const removeAllTooltips = () => {
-    // Closes all active tooltips
-    tooltipManager.removeAll();
-  };
-
-  const getActiveTooltips = () => {
-    // Returns array of all active tooltip configurations
-    return tooltipManager.getActiveTooltips();
+    tooltipManager.activateAwaitingTooltip('my-tooltip');
   };
 
   return (
     <div>
       <button onClick={openTooltip}>Open Tooltip</button>
-      <button onClick={closeTooltip}>Close Tooltip</button>
-      <button onClick={removeAllTooltips}>Close All</button>
     </div>
   );
 }

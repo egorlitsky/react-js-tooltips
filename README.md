@@ -2,7 +2,7 @@
 
 A powerful and flexible React library for adding customizable tooltips to your application.
 
-[![npm version](https://badge.fury.io/js/react-js-tooltips.svg)](https://www.npmjs.com/package/react-js-tooltips)
+![npm version](https://img.shields.io/npm/v/react-js-tooltips)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/egorlitsky/react-js-tooltips/blob/master/LICENSE)
 
 ## 🎯 Features

@@ -35,8 +35,8 @@ import { TooltipContainer } from 'react-js-tooltips';
 function App() {
   return (
     <div>
-      <TooltipContainer />
       {/* Your app content */}
+      <TooltipContainer />
     </div>
   );
 }
@@ -96,34 +96,34 @@ function Example() {
 
 ### TooltipWrapper Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | required | The element that triggers the tooltip |
-| `renderOverlay` | `TRenderOverlayFunction` | required | Function that returns the tooltip content (Tooltip component) |
-| `triggerType` | `TooltipTriggerType` | `CLICK` | How the tooltip is triggered (`CLICK` \| `CODE`) |
-| `uniqueId` | `string` | undefined | Unique identifier for the tooltip (required when `triggerType` is `CODE`) |
-| `blocker` | `boolean` | `false` | If true, user must interact with tooltip before closing |
-| `backdropColor` | `string` | `rgba(0,0,0,0.01)` | Background color of the tooltip backdrop |
-| `disableAnimation` | `boolean` | `false` | Disable fade animations |
-| `className` | `string` | undefined | Custom CSS class for the wrapper element |
-| `onClose` | `() => void` | undefined | Callback when tooltip closes |
-| `onOpen` | `() => void` | undefined | Callback when tooltip opens |
-| `onTargetClick` | `() => void` | undefined | Callback when target element is clicked |
+| Prop | Type | Description |
+|------|------|-------------|
+| `children` | `React.ReactNode` | The element that triggers the tooltip. Required. |
+| `renderOverlay` | `TRenderOverlayFunction` | Function that returns the tooltip content (Tooltip component). Required. |
+| `triggerType` | `TooltipTriggerType` | How the tooltip is triggered (`CLICK` \| `CODE`). Default: `CLICK` |
+| `uniqueId` | `string` | Unique identifier for the tooltip (required when `triggerType` is `CODE`). |
+| `blocker` | `boolean` | If true, user must interact with tooltip before closing. Default: `false` |
+| `backdropColor` | `string` | Background color of the tooltip backdrop. Default: `rgba(0,0,0,0.01)` |
+| `disableAnimation` | `boolean` | Disable fade animations. Default: `false` |
+| `className` | `string` | Custom CSS class for the wrapper element. |
+| `onClose` | `() => void` | Callback when tooltip closes. |
+| `onOpen` | `() => void` | Callback when tooltip opens. |
+| `onTargetClick` | `() => void` | Callback when target element is clicked. |
 
 ### Tooltip Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | required | Tooltip content |
-| `target` | `TTooltipTarget` | required | Ref to the target element (provided by renderOverlay) |
-| `preferredPlacement` | `TooltipPlacement` | undefined | Preferred position for the tooltip |
-| `width` | `number` | undefined | Fixed width for the tooltip |
-| `pointer` | `boolean` | `true` | Show pointer arrow |
-| `forcePointer` | `boolean` | `true` | Force pointer to always be visible |
-| `backgroundColor` | `string` | `#E8EEF7` | Background color of the tooltip |
-| `borderRadius` | `number` | `5` | Border radius of the tooltip |
-| `containerMaxWidth` | `number` | `400` | Maximum width of the tooltip container |
-| `containerMaxHeight` | `number` | `600` | Maximum height of the tooltip container |
+| Prop | Type | Description |
+|------|------|-------------|
+| `children` | `React.ReactNode` | Tooltip content. Required. |
+| `target` | `TTooltipTarget` | Ref to the target element (provided by renderOverlay). Required. |
+| `preferredPlacement` | `TooltipPlacement` | Preferred position for the tooltip. |
+| `width` | `number` | Fixed width for the tooltip. |
+| `pointer` | `boolean` | Show pointer arrow. Default: `true` |
+| `forcePointer` | `boolean` | Force pointer to always be visible. Default: `true` |
+| `backgroundColor` | `string` | Background color of the tooltip. Default: `#E8EEF7` |
+| `borderRadius` | `number` | Border radius of the tooltip. Default: `5` |
+| `containerMaxWidth` | `number` | Maximum width of the tooltip container. Default: `400` |
+| `containerMaxHeight` | `number` | Maximum height of the tooltip container. Default: `600` |
 
 ### TooltipPlacement Enum
 
@@ -187,8 +187,8 @@ The library includes default styles and animations. You can customize tooltips u
 
 Check out the live demo to see all features in action:
 
-- **GitHub Repo**: [react-js-tooltips-demo](https://github.com/egorlitsky/react-js-tooltips-demo)
 - **Live Demo**: [egorlitsky.github.io/react-js-tooltips-demo](https://egorlitsky.github.io/react-js-tooltips-demo/)
+- **GitHub Repo**: [react-js-tooltips-demo](https://github.com/egorlitsky/react-js-tooltips-demo)
 
 ## 📖 Documentation
 

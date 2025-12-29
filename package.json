@@ -1,7 +1,7 @@
 {
   "name": "react-js-tooltips",
-  "version": "1.1.0",
-  "description": "A powerful and flexible React library for adding customizable tooltips to your application.",
+  "version": "1.1.1",
+  "description": "A powerful and flexible ReactJS library for adding customizable tooltips to your web application.",
   "private": false,
   "homepage": "https://github.com/egorlitsky/react-js-tooltips",
   "repository": {
@@ -30,10 +30,8 @@
   "author": "Vladislav Egorlitskii",
   "license": "MIT",
   "dependencies": {
-    "@testing-library/react": "^13.4.0",
-    "react-stores": "^6.0.0",
     "typescript": "^5.7.2",
-    "web-vitals": "^2.1.4"
+    "zustand": "^5.0.1"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -59,6 +57,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react": "^19.2.6",
     "prettier": "^3.6.2",
     "typed-css-modules": "^0.9.1"
   },

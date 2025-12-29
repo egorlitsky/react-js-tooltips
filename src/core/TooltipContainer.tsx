@@ -13,7 +13,7 @@ interface ITooltipContainer {
 export const TooltipContainer: React.FC<ITooltipContainer> = (props) => {
   const { disableAnimation: disableAnimationForAllTooltips } = props;
 
-  const { tooltips } = useTooltipStore();
+  const tooltips = useTooltipStore((state) => state.tooltips);
 
   const renderContent = (tooltip: ITooltipInner) => {
     const {

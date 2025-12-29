@@ -3,7 +3,7 @@ import { RefObject, useEffect } from 'react';
 type LayoutCallback = (rect: DOMRect | null) => void;
 
 export const useOnLayout = (
-  ref: RefObject<HTMLElement>,
+  ref: RefObject<HTMLElement | null>,
   callback: LayoutCallback,
 ) => {
   useEffect(() => {

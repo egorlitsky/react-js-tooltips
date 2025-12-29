@@ -17,11 +17,11 @@ export class TooltipManager {
   }
 
   public getActiveTooltips(): ITooltipInner[] {
-    return tooltipStore.state.tooltips;
+    return tooltipStore.getState().tooltips;
   }
 
   public getAwaitingTooltips(): Omit<ITooltipInner, 'id'>[] {
-    return tooltipStore.state.awaitingTooltips;
+    return tooltipStore.getState().awaitingTooltips;
   }
 
   private incrementId = () => {
@@ -44,9 +44,9 @@ export class TooltipManager {
       this.uniqueIds.add(innerTooltip.uniqueId);
     }
 
-    const tooltips = [...tooltipStore.state.tooltips, innerTooltip];
+    const tooltips = [...tooltipStore.getState().tooltips, innerTooltip];
 
-    tooltipStore.setState({
+    tooltipStore.getState().setState({
       tooltips: tooltips,
     });
 
@@ -58,8 +58,8 @@ export class TooltipManager {
       this.uniqueIds.delete(uniqueId);
     }
 
-    tooltipStore.setState({
-      tooltips: tooltipStore.state.tooltips.filter(
+    tooltipStore.getState().setState({
+      tooltips: tooltipStore.getState().tooltips.filter(
         (tooltip) => tooltip.id !== id,
       ),
     });
@@ -70,12 +70,12 @@ export class TooltipManager {
       this.uniqueIds.delete(uniqueId);
     }
 
-    const tooltipToRemove = tooltipStore.state.tooltips.find(
+    const tooltipToRemove = tooltipStore.getState().tooltips.find(
       (tooltip) => tooltip.uniqueId === uniqueId,
     );
 
-    tooltipStore.setState({
-      tooltips: tooltipStore.state.tooltips.filter(
+    tooltipStore.getState().setState({
+      tooltips: tooltipStore.getState().tooltips.filter(
         (tooltip) => tooltip.id !== tooltipToRemove?.id,
       ),
     });
@@ -83,7 +83,7 @@ export class TooltipManager {
 
   public removeAll(): void {
     this.uniqueIds.clear();
-    tooltipStore.resetState();
+    tooltipStore.getState().resetState();
   }
 
   public reset(): void {
@@ -97,18 +97,18 @@ export class TooltipManager {
       }
     }
 
-    const tooltips = [...tooltipStore.state.awaitingTooltips, tooltip];
+    const tooltips = [...tooltipStore.getState().awaitingTooltips, tooltip];
 
-    tooltipStore.setState({
+    tooltipStore.getState().setState({
       awaitingTooltips: tooltips,
     });
   }
 
   public activateAwaitingTooltip(uniqueId: string): boolean {
-    const awaitingTooltip = tooltipStore.state.awaitingTooltips.find(
+    const awaitingTooltip = tooltipStore.getState().awaitingTooltips.find(
       (tooltip) => tooltip.uniqueId === uniqueId,
     );
-    const tooltip = tooltipStore.state.tooltips.find(
+    const tooltip = tooltipStore.getState().tooltips.find(
       (tooltip) => tooltip.uniqueId === uniqueId,
     );
 
@@ -125,18 +125,18 @@ export class TooltipManager {
       this.uniqueIds.delete(uniqueId);
     }
 
-    tooltipStore.setState({
-      tooltips: tooltipStore.state.tooltips.filter(
+    tooltipStore.getState().setState({
+      tooltips: tooltipStore.getState().tooltips.filter(
         (tooltip) => tooltip.uniqueId !== uniqueId,
       ),
-      awaitingTooltips: tooltipStore.state.awaitingTooltips.filter(
+      awaitingTooltips: tooltipStore.getState().awaitingTooltips.filter(
         (tooltip) => tooltip.uniqueId !== uniqueId,
       ),
     });
   }
 
   public isAwaitingTooltipActive(uniqueId: string): boolean {
-    const tooltip = tooltipStore.state.tooltips.find(
+    const tooltip = tooltipStore.getState().tooltips.find(
       (tooltip) => tooltip.uniqueId === uniqueId,
     );
     return tooltip !== undefined;

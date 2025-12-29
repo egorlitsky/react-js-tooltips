@@ -1,6 +1,7 @@
-import { useStore } from 'react-stores';
-import { tooltipStore } from '../stores/tooltipStore';
+import { tooltipStore } from './tooltipStore';
 
-export const useTooltipStore = () => {
-  return useStore(tooltipStore);
+export const useTooltipStore = <T,>(
+  selector: (state: ReturnType<typeof tooltipStore.getState>) => T,
+) => {
+  return tooltipStore(selector);
 };

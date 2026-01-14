@@ -26,7 +26,7 @@ npm install react-js-tooltips
 
 ### 1. Add TooltipContainer to your app
 
-Wrap your application with `TooltipContainer` at the root level:
+Place `TooltipContainer` at the root level of your React app's tree:
 
 ```tsx
 import React from 'react';
@@ -34,8 +34,11 @@ import { TooltipContainer } from 'react-js-tooltips';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       {/* Your app content */}
+      <header className='App-header'>
+        <TooltipDemo />
+      </header>
       <TooltipContainer />
     </div>
   );
@@ -44,12 +47,89 @@ function App() {
 
 ### 2. Basic Usage with TooltipWrapper
 
-```tsx
-import { TooltipWrapper, Tooltip, TooltipTriggerType } from 'react-js-tooltips';
+![DemoBasic](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGVwdTJpa284bzVkZTRhaGN3ZWppempxcjZwMWNhem9idnZibGF1YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/79Db9QGhUmkntVMTeR/giphy.gif)
 
-function MyComponent() {
+```tsx
+import React from "react";
+import { TooltipWrapper, Tooltip } from "react-js-tooltips";
+
+export const TooltipDemo: React.FC = () => {
   return (
+    <div
+      style={{
+        display: "flex",
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div>
+        <TooltipWrapper
+          renderOverlay={(tooltipProps: any) => {
+            return (
+              <Tooltip {...tooltipProps} width={240}>
+                <div>
+                  <h3>Tooltip Title</h3>
+                  <p>This is a tooltip with some content.</p>
+                </div>
+              </Tooltip>
+            );
+          }}
+        >
+          <button
+            style={{
+              margin: 10,
+              backgroundColor: "#1675e0",
+              color: "white",
+              padding: 10,
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+              fontSize: "16px",
+            }}
+          >
+            CLICK ME!
+          </button>
+        </TooltipWrapper>
+      </div>
+    </div>
+  );
+};
+```
+
+### 3. Programmatic Control with TooltipManager
+
+![DemoClick](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXczbHNzcXRnYWR0dnJ0emUxemI3bnRvOXU5eTA3MmlqamtoeXlmaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yC7oEOEuUz5tzBBZro/giphy.gif)
+
+You can control tooltips programmatically using the `TooltipManager`:
+
+```tsx
+import React from "react";
+
+import {
+  TooltipWrapper,
+  Tooltip,
+  useTooltipManager,
+  TooltipTriggerType,
+} from "react-js-tooltips";
+
+export const TooltipDemo: React.FC = () => {
+  const tooltipManager = useTooltipManager();
+  const TOOLTIP_ID = "my-tooltip";
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <TooltipWrapper
+        uniqueId={TOOLTIP_ID}
+        triggerType={TooltipTriggerType.CODE}
         renderOverlay={(tooltipProps: any) => {
           return (
             <Tooltip {...tooltipProps} width={240}>
@@ -61,35 +141,38 @@ function MyComponent() {
           );
         }}
       >
-        <button>
-          Click me!
-        </button>
+        <div
+          style={{
+            color: "white",
+            fontSize: 18,
+            fontWeight: 500,
+            padding: 5,
+          }}
+        >
+          Tooltip is being displayed here
+        </div>
       </TooltipWrapper>
-  );
-}
-```
-
-### 3. Programmatic Control with TooltipManager
-
-You can control tooltips programmatically using the `TooltipManager`:
-
-```tsx
-import { useTooltipManager, TooltipTriggerType } from 'react-js-tooltips';
-
-function Example() {
-  const tooltipManager = useTooltipManager();
-
-  const openTooltip = () => {
-    // Activates a tooltip with the given uniqueId
-    tooltipManager.activateAwaitingTooltip('my-tooltip');
-  };
-
-  return (
-    <div>
-      <button onClick={openTooltip}>Open Tooltip</button>
+      <button
+        style={{
+          marginTop: 100,
+          backgroundColor: "#1675e0",
+          color: "white",
+          padding: "10px 18px",
+          border: "none",
+          borderRadius: "6px",
+          cursor: "pointer",
+          fontSize: "16px",
+        }}
+        onClick={() => {
+          // Activates a tooltip with the given uniqueId
+          tooltipManager.activateAwaitingTooltip(TOOLTIP_ID);
+        }}
+      >
+        CLICK TO SHOW A TOOLTIP
+      </button>
     </div>
   );
-}
+};
 ```
 
 ## 🔧 API Reference

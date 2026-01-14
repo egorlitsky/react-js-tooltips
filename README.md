@@ -47,7 +47,7 @@ function App() {
 
 ### 2. Basic Usage with TooltipWrapper
 
-![DemoBasic](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGVwdTJpa284bzVkZTRhaGN3ZWppempxcjZwMWNhem9idnZibGF1YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/79Db9QGhUmkntVMTeR/giphy.gif)
+![DemoBasic](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXFxdjljcjIyN3o5dXhjaHhqMzB3c3d3OGxxZnNva2s2NjB1ajN2byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7PslFkhiBpxgkyazxS/giphy.gif)
 
 ```tsx
 import React from "react";
@@ -99,7 +99,7 @@ export const TooltipDemo: React.FC = () => {
 
 ### 3. Programmatic Control with TooltipManager
 
-![DemoClick](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXczbHNzcXRnYWR0dnJ0emUxemI3bnRvOXU5eTA3MmlqamtoeXlmaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yC7oEOEuUz5tzBBZro/giphy.gif)
+![DemoClick](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDIzYXBlc2Z2a3B1cTRsdjU1YWVybHJxOGM3dncwOWM0dzMwYnJ4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zNUYFBkMZvljVu20P6/giphy.gif)
 
 You can control tooltips programmatically using the `TooltipManager`:
 
@@ -154,7 +154,7 @@ export const TooltipDemo: React.FC = () => {
       </TooltipWrapper>
       <button
         style={{
-          marginTop: 100,
+          marginTop: 50,
           backgroundColor: "#1675e0",
           color: "white",
           padding: "10px 18px",
@@ -181,11 +181,11 @@ export const TooltipDemo: React.FC = () => {
 
 | Prop | Type | Description |
 |------|------|-------------|
-| `children` | `React.ReactNode` | The element that triggers the tooltip. Required. |
-| `renderOverlay` | `TRenderOverlayFunction` | Function that returns the tooltip content (Tooltip component). Required. |
-| `triggerType` | `TooltipTriggerType` | How the tooltip is triggered (`CLICK` \| `CODE`). Default: `CLICK` |
+| `children` | `React.ReactNode` | The element that triggers the tooltip to be visible by click. Required. |
+| `renderOverlay` | `TRenderOverlayFunction` | Renders tooltip content (Tooltip component and its content). Required. |
+| `triggerType` | `TooltipTriggerType` | How the tooltip is triggered - programmatically or by click (`CODE` \| `CLICK`). Default: `CLICK` |
 | `uniqueId` | `string` | Unique identifier for the tooltip (required when `triggerType` is `CODE`). |
-| `blocker` | `boolean` | If true, user must interact with tooltip before closing. Default: `false` |
+| `blocker` | `boolean` | If true, a tooltip won't be closed by clicking backdrop. Default: `false` |
 | `backdropColor` | `string` | Background color of the tooltip backdrop. Default: `rgba(0,0,0,0.01)` |
 | `disableAnimation` | `boolean` | Disable fade animations. Default: `false` |
 | `className` | `string` | Custom CSS class for the wrapper element. |
@@ -199,10 +199,10 @@ export const TooltipDemo: React.FC = () => {
 |------|------|-------------|
 | `children` | `React.ReactNode` | Tooltip content. Required. |
 | `target` | `TTooltipTarget` | Ref to the target element (provided by renderOverlay). Required. |
-| `preferredPlacement` | `TooltipPlacement` | Preferred position for the tooltip. |
+| `preferredPlacement` | `TooltipPlacement` | Preferred position for a tooltip. |
 | `width` | `number` | Fixed width for the tooltip. |
 | `pointer` | `boolean` | Show pointer arrow. Default: `true` |
-| `forcePointer` | `boolean` | Force pointer to always be visible. Default: `true` |
+| `forcePointer` | `boolean` | Set to `false` to hide a tooltip's pointer / anchor. Default: `true` |
 | `backgroundColor` | `string` | Background color of the tooltip. Default: `#E8EEF7` |
 | `borderRadius` | `number` | Border radius of the tooltip. Default: `5` |
 | `containerMaxWidth` | `number` | Maximum width of the tooltip container. Default: `400` |
@@ -246,17 +246,17 @@ enum TooltipTriggerType {
 
 | Method | Parameters | Description |
 |--------|------------|-------------|
-| `add(tooltip)` | `tooltip: Omit<ITooltipInner, 'id'>` | Add a new tooltip |
-| `remove({id, uniqueId})` | `{id: number, uniqueId?: string}` | Remove a specific tooltip |
-| `removeByUniqueId(uniqueId)` | `uniqueId: string` | Remove tooltip by unique ID |
-| `removeAll()` | - | Remove all active tooltips |
-| `reset()` | - | Reset the tooltip manager (alias for removeAll) |
-| `getActiveTooltips()` | - | Get all active tooltip configurations |
-| `getAwaitingTooltips()` | - | Get all waiting tooltip configurations |
-| `addAwaitingTooltip(tooltip)` | `tooltip: Omit<ITooltipInner, 'id'>` | Add tooltip to waiting list (for CODE trigger) |
-| `activateAwaitingTooltip(uniqueId)` | `uniqueId: string` | Activate a waiting tooltip |
-| `removeAwaitingTooltip(uniqueId)` | `uniqueId: string` | Remove a waiting tooltip |
-| `isAwaitingTooltipActive(uniqueId)` | `uniqueId: string` | Check if a waiting tooltip is active |
+| `add` | `tooltip: Omit<ITooltipInner, 'id'>` | Adds / displays a new tooltip |
+| `remove` | `{id: number, uniqueId?: string}` | Removes / closes a specific tooltip |
+| `removeByUniqueId` | `uniqueId: string` | Removes / closes tooltip by its unique ID |
+| `removeAll` | - | Removes / closes all active tooltips |
+| `reset` | - | Resets the tooltip manager (alias for `removeAll`) |
+| `getActiveTooltips` | - | Returns all active tooltips |
+| `getAwaitingTooltips` | - | Returns all awaiting tooltips |
+| `addAwaitingTooltip` | `tooltip: Omit<ITooltipInner, 'id'>` | Adds tooltip to waiting list (for `CODE` `triggerType`) |
+| `activateAwaitingTooltip` | `uniqueId: string` | Activates an awaiting tooltip (for `CODE` `triggerType`) |
+| `removeAwaitingTooltip` | `uniqueId: string` | Removes an awaiting tooltip so it can't be triggered anymore |
+| `isAwaitingTooltipActive` | `uniqueId: string` | Returns true if a waiting tooltip is active |
 
 ## 🎨 Styling
 

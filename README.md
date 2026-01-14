@@ -6,8 +6,8 @@ A powerful and flexible React library for adding customizable tooltips to your a
 ![typescript](https://badgen.net/badge/icon/typescript?icon=typescript&label)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/egorlitsky/react-js-tooltips/blob/master/LICENSE)
 ![downloads](https://badgen.net/npm/dt/react-js-tooltips?icon=npm&color=green)
-![minified](https://badgen.net/bundlephobia/min/react-js-tooltips)
-![minified gzip](https://badgen.net/bundlephobia/minzip/react-js-tooltips&color=cyan)
+![minified](https://badgen.net/bundlephobia/min/react-js-tooltips?color=pink)
+![minified gzip](https://badgen.net/bundlephobia/minzip/react-js-tooltips?color=cyan)
 
 
 ## Features

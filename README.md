@@ -3,26 +3,30 @@
 A powerful and flexible React library for adding customizable tooltips to your application.
 
 ![npm version](https://img.shields.io/npm/v/react-js-tooltips)
+![typescript](https://badgen.net/badge/icon/typescript?icon=typescript&label)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/egorlitsky/react-js-tooltips/blob/master/LICENSE)
+![downloads](https://badgen.net/npm/dt/react-js-tooltips?icon=npm&color=green)
+![minified](https://badgen.net/bundlephobia/min/react-js-tooltips)
+![minified gzip](https://badgen.net/bundlephobia/minzip/react-js-tooltips&color=cyan)
 
-## 🎯 Features
+
+## Features
 
 - Simple and intuitive API
-- Highly customizable (colors, positions, animations)
+- Customizeable - colors, positions, animations
 - Responsive design with automatic positioning
 - Smart pointer placement
 - TypeScript support
 - Lightweight and performant
-- Multiple placement options
 - Programmatic control via TooltipManager
 
-## 📦 Installation
+## Installation
 
 ```bash
 npm install react-js-tooltips
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Add TooltipContainer to your app
 
@@ -175,7 +179,7 @@ export const TooltipDemo: React.FC = () => {
 };
 ```
 
-## 🔧 API Reference
+## API Reference
 
 ### TooltipWrapper Props
 
@@ -258,26 +262,18 @@ enum TooltipTriggerType {
 | `removeAwaitingTooltip` | `uniqueId: string` | Removes an awaiting tooltip so it can't be triggered anymore |
 | `isAwaitingTooltipActive` | `uniqueId: string` | Returns true if a waiting tooltip is active |
 
-## 🎨 Styling
+## Styling
 
-The library includes default styles and animations. You can customize tooltips using:
+The library includes default styles and animations. You can customize tooltips using `Tooltip` component props. Refer "Tooltip Props" section above.
 
-- **Props**: Most styling props are available directly on the `Tooltip` component
-- **CSS Modules**: Import and override styles from the library's CSS modules
-- **Inline styles**: Pass custom styles through props
-
-## 🌐 Demo
+## Demo
 
 Check out the live demo to see all features in action:
 
 - **Live Demo**: [egorlitsky.github.io/react-js-tooltips-demo](https://egorlitsky.github.io/react-js-tooltips-demo/)
 - **GitHub Repo**: [react-js-tooltips-demo](https://github.com/egorlitsky/react-js-tooltips-demo)
 
-## 📖 Documentation
-
-For more information, visit the [GitHub repository](https://github.com/egorlitsky/react-js-tooltips).
-
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 

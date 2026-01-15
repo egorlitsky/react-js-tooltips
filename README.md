@@ -1,6 +1,6 @@
 # react-js-tooltips
 
-A powerful and flexible React library for adding customizable tooltips to your application.
+A powerful and flexible ReactJS library for adding customizable tooltips to your web application.
 
 ![npm version](https://img.shields.io/npm/v/react-js-tooltips)
 ![typescript](https://badgen.net/badge/icon/typescript?icon=typescript&label)

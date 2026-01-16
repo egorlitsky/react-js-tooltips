@@ -2,12 +2,12 @@
 
 A powerful and flexible ReactJS library for adding customizable tooltips to your web application.
 
-![npm version](https://img.shields.io/npm/v/react-js-tooltips)
-![typescript](https://badgen.net/badge/icon/typescript?icon=typescript&label)
+![npm version](https://img.shields.io/npm/v/react-js-tooltips?color=red)
+![typescript](https://img.shields.io/badge/typescript-blue?logo=typescript&logoColor=white)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/egorlitsky/react-js-tooltips/blob/master/LICENSE)
-![downloads](https://badgen.net/npm/dt/react-js-tooltips?icon=npm&color=green)
-![minified](https://badgen.net/bundlephobia/min/react-js-tooltips?color=pink)
-![minified gzip](https://badgen.net/bundlephobia/minzip/react-js-tooltips?color=cyan)
+![downloads](https://img.shields.io/npm/d18m/react-js-tooltips)
+![min size](https://img.shields.io/bundlephobia/min/react-js-tooltips?color=pink)
+![min zip size](https://img.shields.io/bundlephobia/minzip/react-js-tooltips?color=cyan)
 
 
 ## Features
@@ -103,7 +103,7 @@ export const TooltipDemo: React.FC = () => {
 
 ### 3. Programmatic Control with TooltipManager
 
-![DemoClick](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDIzYXBlc2Z2a3B1cTRsdjU1YWVybHJxOGM3dncwOWM0dzMwYnJ4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zNUYFBkMZvljVu20P6/giphy.gif)
+![DemoClick](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTg1c2lveTBnc2lzcHdpM3IyOHg1OXh6ZGt5Z2RhdTBreXgwanhqNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Wgu97JPfK5eJFbiy3G/giphy.gif)
 
 You can control tooltips programmatically using the `TooltipManager`:
 
@@ -266,10 +266,11 @@ enum TooltipTriggerType {
 
 The library includes default styles and animations. You can customize tooltips using `Tooltip` component props. Refer "Tooltip Props" section above.
 
-## Demo
+## Sandbox & Demo
 
-Check out the live demo to see all features in action:
+Check out the sandbox and live demo to see all features in action:
 
+- **Sandbox**: [react-js-tooltips](https://codesandbox.io/p/sandbox/determined-gould-d5ynjn?file=%2Fsrc%2FTooltipDemo.tsx%3A6%2C9)
 - **Live Demo**: [egorlitsky.github.io/react-js-tooltips-demo](https://egorlitsky.github.io/react-js-tooltips-demo/)
 - **GitHub Repo**: [react-js-tooltips-demo](https://github.com/egorlitsky/react-js-tooltips-demo)
 
